@@ -1,0 +1,111 @@
+{
+  "name": "@vkhangstack/snowflake-id",
+  "version": "1.1.0",
+  "description": "A simple and lightweight Node.js library to generate unique snowflake IDs.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vkhangstack/snowflake-id.git"
+  },
+  "homepage": "https://github.com/vkhangstack/snowflake-id",
+  "bugs": "https://github.com/vkhangstack/snowflake-id/issues",
+  "author": {
+    "name": "Pham Van Khang",
+    "email": "phamvankhang.tvi@gmail.com",
+    "url": "https://phamvankhang.name.vn"
+  },
+  "keywords": [
+    "snowflake-id",
+    "uuid-generator"
+  ],
+  "license": "MIT",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./package.json": "./package.json"
+  },
+  "typesVersions": {
+    "*": {}
+  },
+  "files": [
+    "dist/**/*",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "format": "prettier --write .",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "test:watch": "vitest watch",
+    "semantic-release": "semantic-release"
+  },
+  "devDependencies": {
+    "@types/node": "^20.8.10",
+    "@vitest/coverage-v8": "^1.0.0",
+    "conventional-changelog-conventionalcommits": "^7.0.2",
+    "prettier": "^3.0.3",
+    "semantic-release": "^22.0.6",
+    "tsup": "^8.0.0",
+    "typescript": "^5.2.2",
+    "vitest": "^1.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "release": {
+    "branches": [
+      "main"
+    ],
+    "plugins": [
+      [
+        "@semantic-release/commit-analyzer",
+        {
+          "preset": "conventionalcommits",
+          "releaseRules": [
+            {
+              "type": "build",
+              "scope": "deps",
+              "release": "patch"
+            }
+          ]
+        }
+      ],
+      [
+        "@semantic-release/release-notes-generator",
+        {
+          "preset": "conventionalcommits",
+          "presetConfig": {
+            "types": [
+              {
+                "type": "feat",
+                "section": "Features"
+              },
+              {
+                "type": "fix",
+                "section": "Bug Fixes"
+              },
+              {
+                "type": "docs",
+                "section": "Documentation Changes"
+              },
+              {
+                "type": "build",
+                "section": "Dependencies and Other Build Updates",
+                "hidden": false
+              }
+            ]
+          }
+        }
+      ],
+      "@semantic-release/npm",
+      "@semantic-release/github"
+    ]
+  }
+}
