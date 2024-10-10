@@ -2,36 +2,30 @@
 <h3 align="center">A simple and lightweight Node.js library to generate unique snowflake IDs.</h3>
 <br />
 <p align="center">
-  <!-- <a href="https://github.com/vkhangstack/snowflake-id/actions/workflows/test-and-release.yml">
-    <img alt="Build states" src="https://github.com/vkhangstack/snowflake-id/actions/workflows/test-and-release.yml/badge.svg?branch=main">
-  </a> -->
   <a href="https://www.npmjs.com/package/@vkhangstack/snowflake-id">
-    <img alt="npm latest version" src="https://img.shields.io/npm/v/@vkhangstack/snowflake-id/latest.svg">
+    <img alt="npm latest version" src="https://img.shields.io/npm/v/@vkhang2stack/snowflake-id/latest.svg">
   </a>
   <a href="https://www.npmjs.com/package/@vkhangstack/snowflake-id">
-    <img alt="npm bundle size" src="https://img.shields.io/bundlephobia/min/@vkhangstack/snowflake-id">
+    <img alt="npm bundle size" src="https://img.shields.io/bundlephobia/min/@vkhang2stack/snowflake-id">
   </a>
   <img alt="Visitors count" src="https://visitor-badge.laobi.icu/badge?page_id=@vkhangstack~snowflake-id.visitor-badge&style=flat-square&color=0088cc">
-  <a href="https://github.com/vkhangstack/snowflake-id/actions">
-    <img alt="Coverage" src="https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/vkhangstack/7336f237b82d9581c5f52405f87db531/raw/snowflake-id-coverage.json">
-  </a>
+  
+  <p  align="center">
   <a href="https://www.npmjs.com/package/@vkhangstack/snowflake-id">
-    <img alt="NPM license" src="https://img.shields.io/npm/l/@vkhangstack/snowflake-id">
+    <img alt="NPM license" src="https://img.shields.io/npm/l/@vkhang2stack/snowflake-id">
   </a>
-  <a href="https://twitter.com/vkhangstack">
-    <img alt="follow on twitter" src="https://img.shields.io/twitter/follow/vkhangstack.svg?style=social&label=@vkhangstack">
-  </a>
+  </p>
+  </p>
 
   <p align="center">
     <a href="https://github.com/vkhangstack/snowflake-id/issues/new?template=bug_report.md">Bug report</a>
     ·
     <a href="https://github.com/vkhangstack/snowflake-id/issues/new?template=feature_request.md">Feature request</a>
   </p>
-</p>
 <br />
 <hr />
 
-`@vkhangstack/snowflake-id` is a Node.js library for generating unique and distributed IDs that are suitable for use as primary keys in distributed systems.
+`@vkhang2stack/snowflake-id` is a Node.js library for generating unique and distributed IDs that are suitable for use as primary keys in distributed systems.
 
 It generates 64-bit IDs (in string format) that are composed of a timestamp, a worker ID, and a sequence number. These IDs are based on [Twitter's Snowflake ID](https://github.com/twitter-archive/snowflake/tree/snowflake-2010) generation algorithm.
 
@@ -40,26 +34,26 @@ It generates 64-bit IDs (in string format) that are composed of a timestamp, a w
 
 ## Installation 🚀
 
-You can install `@vkhangstack/snowflake-id` using pnpm/npm/yarn:
+You can install `@vkhang2stack/snowflake-id` using pnpm/npm/yarn:
 
 ```bash
-pnpm add @vkhangstack/snowflake-id
+pnpm add @vkhang2stack/snowflake-id
 
 # OR
 
-npm install @vkhangstack/snowflake-id
+npm install @vkhang2stack/snowflake-id
 
 # OR
 
-yarn add @vkhangstack/snowflake-id
+yarn add @vkhang2stack/snowflake-id
 ```
 
 ## Usage 💻
 
-Here's an example of how to use `@vkhangstack/snowflake-id`:
+Here's an example of how to use `@vkhang2stack/snowflake-id`:
 
 ```javascript
-import { SnowflakeId } from '@vkhangstack/snowflake-id';
+import { SnowflakeId } from '@vkhang2stack/snowflake-id';
 
 const snowflake = SnowflakeId({
   workerId: 1,
@@ -102,7 +96,7 @@ There are two errors that can be thrown by the SnowflakeId instance:
 Here's an example of how to generate 10 IDs:
 
 ```javascript
-import { SnowflakeId } from '@vkhangstack/snowflake-id';
+import { SnowflakeId } from '@vkhang2stack/snowflake-id';
 
 const snowflake = SnowflakeId();
 
@@ -114,7 +108,7 @@ for (let i = 0; i < 10; i++) {
 And here's an example of how to generate IDs using different worker IDs:
 
 ```javascript
-import { SnowflakeId } from '@vkhangstack/snowflake-id';
+import { SnowflakeId } from '@vkhang2stack/snowflake-id';
 
 const worker1 = SnowflakeId({ workerId: 1 });
 const worker2 = SnowflakeId({ workerId: 2 });
@@ -128,7 +122,7 @@ While using it in distributed systems, it is highly recommended that you set a u
 While the implementation detail depends on you, one simple way to set a possible unique `workerId` is to use `process.pid`.
 
 ```javascript
-import { SnowflakeId } from '@vkhangstack/snowflake-id';
+import { SnowflakeId } from '@vkhang2stack/snowflake-id';
 
 const workerId = process.pid % 1024; // Using PID as workerId
 const snowflake = SnowflakeId({ workerId });
