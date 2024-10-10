@@ -1,6 +1,6 @@
 {
   "name": "@vkhang2stack/snowflake-id",
-  "version": "0.1.1",
+  "version": "1.0.1",
   "description": "A simple and lightweight Node.js library to generate unique snowflake IDs.",
   "repository": {
     "type": "git",
